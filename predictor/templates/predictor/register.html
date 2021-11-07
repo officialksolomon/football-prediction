@@ -1,0 +1,33 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+{% block body %}
+{% comment %} navigation.... {% endcomment %}
+{% comment %} content.. {% endcomment %}
+{% block content %}
+<div class="login container h-100">
+  <div class="row h-100 ">
+    <div class="col-12 col-sm d-flex justify-content-center align-items-center">
+      <div class="login-container w-50 h-100 d-flex flex-column justify-content-center align-items-center">
+      <img class="my-logo w-25 shadow" src="{% static 'images/logo.png' %}" alt="">
+      <p class="m-0 mt-3">Register</p>
+      <form action="{% url 'register' %}" method="post" class="login-form form-group w-75">
+      {% csrf_token %}
+      {% if form.errors %}
+    <p class=" bg-white text-danger rounded p-2 mt-2 ">Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      {% for field in form %}
+      <div class="text-white">{{field.label_tag}}</div>
+      <div>{{field}}</div>
+      {% endfor %}
+      <button type="submit" class="btn btn-sm btn-block my-button" >Register</button>
+      <a href="{% url 'login' %}" class="btn btn-sm btn-block btn-outline-light">Login</a>
+      </form>
+      </div>
+    </div>
+    
+  </div>
+</div>
+{% endblock content %}
+   <img class="ball  position-absolute w-25" src="{% static 'images/ball.png' %}" alt="ball">  
+<script defer src="{% static 'js/login_register.js' %}"></script>
+{% endblock body %}

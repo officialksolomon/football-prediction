@@ -1,0 +1,155 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+p {
+  font-size: 14px;
+  color: white;
+}
+
+label {
+  font-size: 14px !important;
+}
+
+h6 {
+  color: white;
+}
+
+input {
+  padding: 0 15px;
+  padding-bottom: 5px;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+input:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+input::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+input:disabled {
+  background: white !important;
+}
+
+.content {
+  background-color: #000 !important;
+  min-height: 100% !important;
+}
+
+.ball {
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+}
+
+.ellipse {
+  top: 0;
+  right: 0;
+  width: 40%;
+}
+
+.phone {
+  right: 50px;
+  top: 0;
+  width: 20%;
+}
+
+.my-button {
+  background: -webkit-gradient(linear, left top, left bottom, from(orange), to(orangered));
+  background: linear-gradient(orange, orangered);
+  color: white;
+  padding: 8px 15px;
+  margin: 10px 0;
+  font-size: 12px;
+  outline: none;
+}
+
+.team {
+  color: white;
+  font-size: 14px;
+}
+
+.form-control {
+  font-size: 14px !important;
+  width: 100%;
+}
+
+.team:hover {
+  background-color: green !important;
+}
+
+.message {
+  z-index: 10;
+  top: 200px;
+}
+
+.message-hide {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  .ellipse {
+    top: 0;
+    right: 0;
+    width: 50%;
+  }
+  .phone {
+    right: 10px;
+    top: 0;
+    width: 30%;
+  }
+  .ball {
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+  }
+  .headline {
+    margin-top: 170px !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .ellipse {
+    top: 0;
+    right: 0;
+    width: 30%;
+  }
+  .phone {
+    right: 10px;
+    top: 0;
+    width: 20%;
+  }
+  .ball {
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+  }
+  .headline {
+    margin-top: 30px !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

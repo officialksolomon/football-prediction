@@ -1,0 +1,31 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+{% block title %}Welcome{% endblock title %}
+{% block body %}
+{% comment %} contents {% endcomment %}
+{% block navigation %}{% endblock navigation %}
+{% block content %}
+<div class="content container-fluid">
+  <div class="row ">
+    <div class="col-sm h-100 d-flex flex-column justify-content-end align-content-end m-3">
+
+     <div class="headline w-75 mt-3">
+      <img class="w-50 " src="{% static 'images/logo.png' %}" alt="logo">
+      <p class="m-0 mt-2"> Win prizes</p>
+      <p class="m-0 mt-2"> While your opinion counts</p>
+      <p class="m-0 mt-2 font-weight-bold"> PREDICT YOUR FAVOURITE FOOTBALL MATCHES AND WIN BIG!</p>
+      <a class="my-button btn btn-sm" href="{% url 'login' %}">Get Started</a>
+     </div>
+    </div>
+  {% comment %} second column {% endcomment %}
+    <div class=" col-sm h-100 w-100 ">
+      
+    </div>
+    
+  </div>
+</div>
+{% endblock content %}
+ <img class="ellipse  m-0 p-0 position-absolute " src="{% static 'images/ellipse.png' %}" alt="ellipse"> 
+  <img class="phone  m-4 p-0 position-absolute " src="{% static 'images/phone.png' %}" alt="phone"> 
+   <img class="ball  position-absolute " src="{% static 'images/ball.png' %}" alt="ball"> 
+{% endblock body %}

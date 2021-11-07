@@ -1,0 +1,56 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+{% block body %}
+{% block navigation %}
+{{ block.super }}
+{% endblock navigation %}
+{% block user %}
+{{ block.super }}
+{% endblock user %}
+{% comment %} navigation.... {% endcomment %}
+{% comment %} content.. {% endcomment %}
+{% block content %}
+
+<div class="prediction-message bg-light position-absolute "> 
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+</div>
+<div class="container">
+  <div class="row">
+<div class="col-sm">
+<table class="table table-bordered table-inverse table-responsive bg bg-light mt-3">
+  <thead class="thead-inverse">
+    <tr>
+      <th>SN</th>
+      <th>Prediction</th>
+      <th>Match</th>
+      <th>Date and Time</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for prediction in predictions %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td scope="row">{{prediction.prediction}}</td>
+        <td>{{prediction.match}}</td>
+        <td>{{prediction.pub_date}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td scope="row"></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+</table>
+</div>
+  
+  </div>
+</div>
+{% endblock content %}
+<img class="ball   w-25" src="{% static 'images/ball.png' %}" alt="ball">  
+<script src="{% static 'js/login_register.js' %}"></script>
+{% endblock body %}

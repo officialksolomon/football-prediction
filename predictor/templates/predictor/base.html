@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% comment %} static files {% endcomment %}
+{% load static %}
+<script src="https://use.fontawesome.com/19ef9365d3.js"></script>
+<script src="{% static 'bs4/js/jquery.js' %}"></script>
+<script src="{% static 'bs4/js/bootstrap.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'bs4/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'bs4/css/style.css' %}">
+{% comment %} ... {% endcomment %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Predictor{% endblock title %}</title>
+</head>
+<body class="h-100">
+{% block body %}
+{% comment %} navigation {% endcomment %}
+  <div class="navigation">
+  {% block navigation %}
+<nav class="navbar navbar-expand-sm navbar-light bg-light shadow">
+  <a class="navbar-brand" href="#"><img class="my-logo w-50 shadow" src="{% static 'images/logo.png' %}" alt=""></a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'predictor:home' %}">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'predictor:predictions' %}">Predictions</a>
+      </li>
+      
+  </div>
+</nav>
+  {% endblock navigation %}
+  </div>
+{% comment %} user... {% endcomment %}
+{% block user %}
+{% if user.is_authenticated %}
+<div class="user container-fluid bg-white d-flex justify-content-between align-items- center p-2">  
+<div class="border border-3 border-success rounded text-center p-1" >Welcome {{user}}</div>
+<div><a href="{% url 'login' %}" class="btn my-button">Logout</a> </div>
+</div>
+{% endif %}
+{% endblock user %}
+
+  {% comment %} contents {% endcomment %}
+  <div class="content">
+  {% block content %} {% endblock content %}
+  </div>
+  
+  {% endblock body %}
+</body>
+</html>

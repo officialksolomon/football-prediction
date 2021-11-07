@@ -1,0 +1,71 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+{% block body %}
+{% block navigation %}
+{{ block.super }}
+{% endblock navigation %}
+{% comment %} user... {% endcomment %}
+{% block user %}
+{{ block.super }}
+{% endblock user %}
+{% comment %} navigation.... {% endcomment %}
+{% comment %} content.. {% endcomment %}
+{% block content %}
+
+<div class="container d-flex flex-column justify-content-center align-items-center m-3 p-3 ">
+<div class="message bg-light position-absolute  w-75 p-3 rounded"> 
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+</div>
+</div>
+<div class="container">
+  <div class="row">
+  {% for match in matches %}
+  <div class="col-sm-4 m-4">
+    {% comment %} match... {% endcomment %}
+    <div class="match d-flex flex-column justify-content-center align-items-center"> 
+  
+    <div class="team-wrapper d-flex justify-content-center align-items-center"> 
+      <div class="team item bg-dark  p-1 pt-3 m-1 rounded d-flex flex-column justify-content-center align-items-center ">
+     <img class="ball" src="{% static 'images/ball2.png' %}" alt="ball"> 
+     {{match.team_one}}
+      </div>
+        <div class="team item bg-dark p-1 pt-3  m-1 rounded d-flex flex-column justify-content-center align-items-center ">
+      <img class="ball" src="{% static 'images/ball2.png' %}" alt="ball"> 
+      Draw
+        </div>
+      
+        <div class="team item bg-dark  p-1 pt-3  m-1 rounded d-flex flex-column justify-content-center align-items-center ">
+          <img class="ball" src="{% static 'images/ball2.png' %}" alt="ball"> 
+          {{match.team_two}}
+        </div>
+     
+      </div>
+      
+      {% comment %} Form {% endcomment %}
+      <div class="form-group d-flex flex-column justify-content-center align-items-center w-100">
+     <form action="{% url 'predictor:home' %}" method="post">
+     {% csrf_token %}
+      <input type="hidden" name="match" value={{match.id}}>
+      <input type="hidden" name="user" value={{user}}>
+      <input type="text" name="prediction" id="prediction" class="prediction-input form- rounded" placeholder="Prediction"    required readonly>
+   
+      <input type="submit" value="PREDICT" class="btn btn-block my-button w-100">
+     </form>
+      </div>
+      </div>
+
+        {% comment %} match... {% endcomment %}
+    </div>
+ {% endfor %}
+  
+  </div>
+</div>
+{% endblock content %}
+{% comment %} <img class="ball position-absolute w-25" src="{% static 'images/ball.png' %}" alt="ball">   {% endcomment %}
+<script src="{% static 'js/prediction_control.js' %}"></script>
+
+{% endblock body %}
