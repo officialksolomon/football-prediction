@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -131,5 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # authentication
 LOGIN_REDIRECT_URL = '/predictor/home/'
 LOGOUT_REDIRECT_URL = '/predictor/login/'
-
-
+django_heroku.settings(locals())
