@@ -41,7 +41,7 @@
 {% comment %} user... {% endcomment %}
 {% block user %}
 {% if user.is_authenticated %}
-<div class="user container-fluid bg-white d-flex justify-content-between align-items- center p-2">  
+<div class="user container-fluid bg-white d-flex justify-content-between align-items- center p-2 m-2">  
 <div class="border border-3 border-success rounded text-center p-1" >Welcome {{user}}</div>
 <div><a href="{% url 'login' %}" class="btn my-button">Logout</a> </div>
 </div>
