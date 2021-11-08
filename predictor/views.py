@@ -11,7 +11,7 @@ from.forms import PredictionForm
 # Create your views here.
 
 
-class RegisterView(LoginRequiredMixin, View):
+class RegisterView(View): 
     def get(self, request):
         form = UserCreationForm()
         return render(request, "predictor/register.html", {'form': form})
