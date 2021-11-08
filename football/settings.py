@@ -138,9 +138,7 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),
 #  Add configuration for static files storage using whitenoise
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STRICT = False
-WHITENOISE_ALLOW_ALL_ORIGINS = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
